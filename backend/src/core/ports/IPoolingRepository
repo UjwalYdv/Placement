@@ -1,0 +1,9 @@
+
+import { Pool, PoolMember, PoolResult } from '../domain/Pooling';
+
+export interface IPoolingRepository {
+  createPool(year: number): Promise<Pool>;
+  addMembers(poolId: number, members: Omit<PoolMember, 'poolId'>[]): Promise<void>;
+  findPoolsByYear(year: number): Promise<Pool[]>;
+  findMembersByPool(poolId: number): Promise<PoolMember[]>;
+}

@@ -1,0 +1,11 @@
+import { BankingOperation } from '../domain/Banking';
+
+export class BankSurplusUseCase {
+  execute(operation: BankingOperation): void {
+    if (operation.amount <= 0) {
+      throw new Error('Cannot bank non-positive compliance balance');
+    }
+
+    // Business logic validated, will be persisted by port
+  }
+}
